@@ -8,7 +8,7 @@ size = Vector2(53, 53)
 
 [node name="asteroid" type="RigidBody2D" unique_id=1151907015]
 position = Vector2(1, 2)
-gravity_scale = 0.551
+gravity_scale = 0.451
 contact_monitor = true
 max_contacts_reported = 4
 

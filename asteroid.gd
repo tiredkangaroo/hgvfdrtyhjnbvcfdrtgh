@@ -11,6 +11,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# continously go down
-	if position.y > 900:
-		get_parent().remove_child(self)
+	var p = get_parent()
+	if p.position.y > 900:
+		p.get_parent().score += 1;
+		p.get_parent().update_score();
+		queue_free()
 		print("by by i go die now")

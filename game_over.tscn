@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://qbwjvkgl1o3o"]
+
+[ext_resource type="Script" uid="uid://e0xsgnxrsy01" path="res://button.gd" id="1_y26ei"]
+
+[node name="Node2D" type="Node2D" unique_id=1780668736]
+
+[node name="Label" type="Label" parent="." unique_id=2129870860]
+offset_left = 116.00001
+offset_top = 49.000004
+offset_right = 548.0
+offset_bottom = 216.0
+scale = Vector2(10.58, 10.58)
+text = "game over"
+
+[node name="Button" type="Button" parent="." unique_id=449539795]
+offset_left = 297.0
+offset_top = 349.00003
+offset_right = 460.25
+offset_bottom = 401.00003
+scale = Vector2(3.2, 3.2)
+theme_override_font_sizes/font_size = 31
+text = "play again"
+script = ExtResource("1_y26ei")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

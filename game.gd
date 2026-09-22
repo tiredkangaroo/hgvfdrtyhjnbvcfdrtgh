@@ -2,6 +2,7 @@ extends Node2D
 
 var asteroid = preload("res://asteroid.tscn")
 var hearts = 5
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,17 +25,22 @@ func _on_timer_timeout() -> void:
 	get_node("Timer").start()
 
 func update_hearts():
+	if hearts == 0:
+		get_tree().change_scene_to_file("res://game_over.tscn")
+		return
 	for i in range(5):
+		
 		var heart: Sprite2D = get_node("Heart%d" % (i + 1))
 		heart.visible = false
 	for i in range(hearts):
 		var heart: Sprite2D = get_node("Heart%d" % (i+1))
 		heart.visible = true
 
-
+func update_score():
+	var label: Label = get_node("Label")
+	label.text = "score: %d" % score
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("yo", body.name)
 	if body.is_in_group("asteroids"):
 		hearts -= 1
 		update_hearts()
