@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c0s48y258sqw4"]
+
+[ext_resource type="Script" uid="uid://b7bltai3sn4ak" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://t2hm4erfwr37" path="res://player.gd" id="2_e2o6t"]
+
+[sub_resource type="Gradient" id="Gradient_mwb40"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80nbo"]
+gradient = SubResource("Gradient_mwb40")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(62.85042, 64.447426)
+
+[sub_resource type="GDScript" id="GDScript_80nbo"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(870.5, 105.5)
+
+[node name="Node2D" type="Node2D" unique_id=440088369]
+script = ExtResource("1_80nbo")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1352144640]
+position = Vector2(584, 497)
+scale = Vector2(1.3046851, 1.2568382)
+mass = 48.0
+gravity_scale = 0.0
+lock_rotation = true
+angular_damp_mode = 1
+script = ExtResource("2_e2o6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=131292569]
+scale = Vector2(1, 0.99999994)
+texture = SubResource("GradientTexture2D_80nbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1739857272]
+position = Vector2(0, -0.39779663)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="Timer" type="Timer" parent="." unique_id=2097631440]
+autostart = true
+script = SubResource("GDScript_80nbo")
+
+[node name="FloorRB" type="RigidBody2D" parent="." unique_id=655127481]
+mass = 100000.0
+gravity_scale = 0.0
+freeze = true
+
+[node name="ColorRect" type="ColorRect" parent="FloorRB" unique_id=37012781]
+offset_left = 168.0
+offset_top = 558.0
+offset_right = 1032.0
+offset_bottom = 654.0
+color = Color(1, 0.24313726, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRB" unique_id=1884411799]
+position = Vector2(600.75, 606.25)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="Label" type="Label" parent="." unique_id=303659880]
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 272.0
+offset_bottom = 35.0
+text = "number of asteroids wiped out: 0"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

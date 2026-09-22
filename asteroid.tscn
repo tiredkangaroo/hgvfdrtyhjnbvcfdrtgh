@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://nrx18vicox3t"]
+
+[ext_resource type="Texture2D" uid="uid://bw2rye1b7vvaw" path="res://asteroid.png" id="1_u87q6"]
+[ext_resource type="Script" uid="uid://d0n8xa6mo2jd6" path="res://asteroid.gd" id="2_p0ukn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0c22"]
+size = Vector2(53, 53)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1151907015]
+position = Vector2(1, 2)
+gravity_scale = 0.551
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692929406]
+position = Vector2(26.5, 26.5)
+shape = SubResource("RectangleShape2D_d0c22")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1372373668]
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 61.0
+offset_bottom = 61.0
+texture = ExtResource("1_u87q6")
+script = ExtResource("2_p0ukn")
