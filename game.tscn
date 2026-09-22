@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7bltai3sn4ak" path="res://game.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://t2hm4erfwr37" path="res://player.gd" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://bgtsxcw3jxrnp" path="res://heart.png" id="3_feb5d"]
 
 [sub_resource type="Gradient" id="Gradient_mwb40"]
 
@@ -28,6 +29,9 @@ func _process(delta: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(870.5, 105.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
+size = Vector2(865, 97)
+
 [node name="Node2D" type="Node2D" unique_id=440088369]
 script = ExtResource("1_80nbo")
 
@@ -53,22 +57,6 @@ shape = SubResource("RectangleShape2D_80nbo")
 autostart = true
 script = SubResource("GDScript_80nbo")
 
-[node name="FloorRB" type="RigidBody2D" parent="." unique_id=655127481]
-mass = 100000.0
-gravity_scale = 0.0
-freeze = true
-
-[node name="ColorRect" type="ColorRect" parent="FloorRB" unique_id=37012781]
-offset_left = 168.0
-offset_top = 558.0
-offset_right = 1032.0
-offset_bottom = 654.0
-color = Color(1, 0.24313726, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRB" unique_id=1884411799]
-position = Vector2(600.75, 606.25)
-shape = SubResource("RectangleShape2D_e2o6t")
-
 [node name="Label" type="Label" parent="." unique_id=303659880]
 offset_left = 15.0
 offset_top = 12.0
@@ -76,4 +64,44 @@ offset_right = 272.0
 offset_bottom = 35.0
 text = "number of asteroids wiped out: 0"
 
+[node name="Heart1" type="Sprite2D" parent="." unique_id=1345483823]
+position = Vector2(38, 70)
+texture = ExtResource("3_feb5d")
+
+[node name="Heart2" type="Sprite2D" parent="." unique_id=750616859]
+position = Vector2(84, 70)
+texture = ExtResource("3_feb5d")
+
+[node name="Heart3" type="Sprite2D" parent="." unique_id=235407921]
+position = Vector2(129, 70)
+texture = ExtResource("3_feb5d")
+
+[node name="Heart4" type="Sprite2D" parent="." unique_id=1354952469]
+position = Vector2(175, 71)
+texture = ExtResource("3_feb5d")
+
+[node name="Heart5" type="Sprite2D" parent="." unique_id=1512454812]
+position = Vector2(223, 72)
+texture = ExtResource("3_feb5d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=236554505]
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=37012781]
+offset_left = 168.0
+offset_top = 558.0
+offset_right = 1032.0
+offset_bottom = 654.0
+color = Color(1, 0.24313726, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1884411799]
+position = Vector2(600.75, 606.25)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D" unique_id=1222222141]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D" unique_id=78035490]
+position = Vector2(600.5, 605.5)
+shape = SubResource("RectangleShape2D_feb5d")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

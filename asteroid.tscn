@@ -6,9 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0c22"]
 size = Vector2(53, 53)
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1151907015]
+[node name="asteroid" type="RigidBody2D" unique_id=1151907015]
 position = Vector2(1, 2)
 gravity_scale = 0.551
+contact_monitor = true
+max_contacts_reported = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692929406]
 position = Vector2(26.5, 26.5)
