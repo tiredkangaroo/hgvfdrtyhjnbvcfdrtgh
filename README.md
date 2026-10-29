@@ -6,6 +6,7 @@ a game made for [jumpstart haven](https://jumpstart.hackclub.com/).
 - you have 5 lives. you lose one life everytime an asteroid hit the purple platform.
 - the asteroid explodes when it goes out of bounds. you get a point every time an asteroid does that.
 
+## demo
 [demo](https://tiredkangaroo.itch.io/hgvfdrtyhjnbvcfdrtgh)
 
 <img width="636" height="353" alt="Screenshot 2026-10-29 at 1 49 25 PM" src="https://github.com/user-attachments/assets/a67742da-3b20-43b7-ab8e-93c24ade4877" />
