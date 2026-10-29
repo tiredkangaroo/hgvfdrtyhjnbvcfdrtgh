@@ -9,4 +9,5 @@ a game made for [jumpstart haven](https://jumpstart.hackclub.com/).
 ## demo
 [demo](https://tiredkangaroo.itch.io/hgvfdrtyhjnbvcfdrtgh)
 
+## screenshot
 <img width="636" height="353" alt="Screenshot 2026-10-29 at 1 49 25 PM" src="https://github.com/user-attachments/assets/a67742da-3b20-43b7-ab8e-93c24ade4877" />
